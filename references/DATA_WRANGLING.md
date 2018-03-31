@@ -27,7 +27,7 @@ The animal classification dataset consists of records providing a numeric repres
 
 ## Dataset: Pedigree Scores
 
-Holstein Association USA conducts additional analysis on individual animal gentics based on available pedigree data, genomic sequencing, as well as actual production information from the animal and its genetic siblings where available. The contents of the paper reports were scanned to PDF and parsed into CSV files. The resulting CSVs were uploaded to a private AWS S3 bucket for on-demand, repeatable retrieval via script.  These data types were checked in the script [parse_genetics.py][/scripts/parse_genetics.py].
+Holstein Association USA conducts additional analysis on individual animal gentics based on available pedigree data, genomic sequencing, as well as actual production information from the animal and its genetic siblings where available. The contents of the paper reports were scanned to PDF and parsed into CSV files. The resulting CSVs were uploaded to a private AWS S3 bucket for on-demand, repeatable retrieval via script.  These data types were checked in the script [parse_genetics.py](/scripts/parse_genetics.py).
 
 Holstein USA provides the following resources to  understand these reports:
 

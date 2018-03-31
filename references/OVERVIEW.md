@@ -107,6 +107,29 @@ The CSV files were requested from the [NOAA Online Climate Data Online Search](h
 
 The raw files are processed by in the script [parse_weather.py](/scripts/parse_weather.py).  Initially, the resulting DataFrame was limited to a smaller set of variables including the station identifier, name of station, latitude, longitude, elevation, date, the volume of precipitation, maximum temperature and minimum temperature.  Null values were permitted in the precipitation, minimum temperature, and maximum temperature columns and interpreted as measurements not taken by a specific station.  Assumed ranges were applied to the precipitation (assumed to between 0 and 20 inches if not null) and temperature columns (assumed to be between -20 and 120 degrees if not null).  After asserting numerical ranges, the remaining columns were checked for the expected data types.  The resulting DataFrame was stored in a local database through the following [script.](/scripts/load_database.py)
 
+### Genetics Data | Pedigree Scores
+
+#### Description
+
+Holstein Association USA  conducts additional analysis on individual animal genetics based on available pedigree data, genomic sequencing, as well as actual production information from the animal and its genetic siblings where available. CTPI and Milk are two values from this report that represent the  CTPI  as an aggregated indicator of milking performance and Milk as an indicator focused solely on the likelihood of higher volumes of milk production. In both cases, higher values are more favorable.
+
+```txt
+ANIMAL_ID,NAME,FS,PRO,%P,Fat,%F,Rel,Milk,SCS,PL,DPR,TYPE,REL,UDC,FLC,CTPI 1999 ," BELSHWAY PLANET 1999
+USA 71404944100-NA12/12/2012",86 ,49,-0.02,40,-0.09,50 ,1772,2.94 ,3.4,0.2,1.34,53 ,0.55,-0.29 ,2198
+2043 ," BELSHWAY MASSEY 2043
+USA 72758233100-NA 06/26/2013",79 ,36,0.01,38,-0.01,47 ,1132,2.76 ,3.6,-0.2,0.94,53 ,0.66,0.94 ,2150
+```
+
+The example above indicates that animal with the ID of 1999 had a Milk Indicator of 1772 a CTPI of 2198. Cow #2043 had a milk indicator of 1132.
+
+#### Acquisition
+
+These reports were retrieved in the form of paper reports. The contents of the reports were scanned to PDF and parsed into CSV files. The resulting CSVs were uploaded to a private AWS S3 bucket for on-demand, repeatable retrieval via script.
+
+#### Data Wrangling
+
+The data was parsed into a local database via the script [parse_genetics.py](/scripts/parse_genetics.py).  Future iterations could include programmatic access to individual pedigree scores. However, the pay-per-drink model of Holstein USA was cost prohibitive for an educational exercise.  Features were not initially transformed, however through iterations and discussions CTPI and Milk Indicator were found to be most informative pedigree features when predicting milk production.
+
 ## Other Potential Dataset(s)
 
 ### Milk Quality Measurements | Somatic Cell Count, Butterfat Percentage

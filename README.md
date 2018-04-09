@@ -4,6 +4,12 @@
 
 This repository is intended for the analysis of milk production data, collected from a small Pennsylvania dairy farm.  For additional information check out the [project overview](references/OVERVIEW.md).
 
+## Outputs
+
+Check out this post for a summary post on some of the work in this project:
+
+- [https://bcbeidel.github.io/2018/04/01/data-in-dairy-visualizing-the-herd/](https://bcbeidel.github.io/2018/04/01/data-in-dairy-visualizing-the-herd/)
+
 ## Structure
 
 The directory structure of your new project looks like this:
